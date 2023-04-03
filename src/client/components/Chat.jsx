@@ -22,7 +22,7 @@ const Chat = () => {
       <h1> JOIN A CHAT</h1>
       <input
         type='text'
-        placeholder='Cindy...'
+        placeholder='Name...'
         onChange={(event) => {
           setUsername(event.target.value);
         }}

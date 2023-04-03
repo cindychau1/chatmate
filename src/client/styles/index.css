@@ -1,13 +1,31 @@
 /* styling for chat container*/
 .chat-container {
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 h1 {
     color: #2078b4;
     font-size: 35px;
-    padding: 2rem;
+    padding: 1rem;
+}
+
+input {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 5px;
+}
+
+input:focus {
+    outline: none;
+    border: 4px solid #2078b4;
+}
+
+button {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    background-color: #2078b4;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
 }
