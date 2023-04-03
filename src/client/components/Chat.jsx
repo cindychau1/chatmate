@@ -19,7 +19,7 @@ const Chat = () => {
 
   return (
     <div className='chat-container'>
-      <h1> JOIN A CHAT</h1>
+      <h1>CHAT WITH YOUR MATES</h1>
       <input
         type='text'
         placeholder='Name...'
