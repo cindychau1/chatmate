@@ -1,0 +1,13 @@
+/* styling for chat container*/
+.chat-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: #2078b4;
+    font-size: 35px;
+    padding: 2rem;
+}

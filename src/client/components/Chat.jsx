@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { io } from 'socket.io-client';
+import '../styles/index.css';
 
 const socket = io.connect('http://localhost:3000', {
   transports: ['websocket', 'polling', 'flashsocket'],
