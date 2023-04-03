@@ -1,42 +1,39 @@
-import * as React from 'react';
-import { useState } from 'react';
-import { io } from 'socket.io-client';
-import '../styles/index.css';
+import React, { useState } from 'react';
 
-const socket = io.connect('http://localhost:3000', {
-  transports: ['websocket', 'polling', 'flashsocket'],
-});
+const Chat = ({ socket, username, room }) => {
+  const [currMessage, setCurrMessage] = useState('');
 
-const Chat = () => {
-  const [username, setUsername] = useState('');
-  const [room, setRoom] = useState('');
-
-  const joinRoom = () => {
-    if (username !== '' && room !== '') {
-      socket.emit('join_room', room);
+  const sendMessage = async () => {
+    if (currMessage !== '') {
+      const messageData = {
+        room: room,
+        username: username,
+        message: currMessage,
+        time:
+          new Date(Date.now()).getHours() +
+          ':' +
+          new Date(Date.now()).getMinutes(),
+      };
+      await socket.emit('sendMessage', messageData);
     }
   };
-
   return (
-    <div className='chat-container'>
-      <h1>CHAT WITH YOUR MATES</h1>
-      <input
-        type='text'
-        placeholder='Name...'
-        onChange={(event) => {
-          setUsername(event.target.value);
-        }}
-      />
-      <input
-        type='text'
-        placeholder='Room ID...'
-        onChange={(event) => {
-          setRoom(event.target.value);
-        }}
-      />
-      <button onClick={joinRoom}>Join A Room</button>
+    <div>
+      <div className='chat-header'>
+        <h2>Live Chat</h2>
+      </div>
+      <div className='chat-body'></div>
+      <div className='chat-footer'>
+        <input
+          type='text'
+          placeholder='Hey...'
+          onChange={(event) => {
+            setCurrMessage(event.target.value);
+          }}
+        />
+        <button onClick={sendMessage}>&#9658;</button>
+      </div>
     </div>
   );
 };
-
 export default Chat;
