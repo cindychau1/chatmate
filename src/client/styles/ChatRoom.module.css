@@ -1,9 +1,4 @@
 /* styling for join room container */
-.join-room {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
 
 h1 {
     color: #2078b4;

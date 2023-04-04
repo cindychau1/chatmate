@@ -21,25 +21,30 @@ const ChatRoom = () => {
 
   return (
     <div className='app'>
-      <div className='chat-room'>
-        <h1>CHAT WITH YOUR MATES</h1>
-        <input
-          type='text'
-          placeholder='Name...'
-          onChange={(event) => {
-            setUsername(event.target.value);
-          }}
-        />
-        <input
-          type='text'
-          placeholder='Room ID...'
-          onChange={(event) => {
-            setRoom(event.target.value);
-          }}
-        />
-        <button onClick={joinRoom}>Join A Room</button>
+      {/* if showchat is false, show the starter page*/}
+      {!showChat ? (
+        <div className='chat-room'>
+          <h1>CHAT WITH YOUR MATES</h1>
+          <input
+            type='text'
+            placeholder='Name...'
+            onChange={(event) => {
+              setUsername(event.target.value);
+            }}
+          />
+          <input
+            type='text'
+            placeholder='Room ID...'
+            onChange={(event) => {
+              setRoom(event.target.value);
+            }}
+          />
+          <button onClick={joinRoom}>Join A Room</button>
+        </div>
+      ) : (
+        // otherwise show the actual chat messages
         <Chat socket={socket} username={username} room={room} />
-      </div>
+      )}
     </div>
   );
 };
