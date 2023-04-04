@@ -31,7 +31,7 @@ const Chat = ({ socket, username, room }) => {
   return (
     <div className='chat-window'>
       <div className='chat-header'>
-        <h2>Live Chat</h2>
+        <p>Live Chat</p>
       </div>
       <div className='chat-body'>
         {/* add scroll functionality to scroll to latest message */}
