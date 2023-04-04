@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { io } from 'socket.io-client';
 import Chat from './Chat';
-import '../styles/ChatRoom.module.css';
 
 const socket = io.connect('http://localhost:3000', {
   transports: ['websocket', 'polling', 'flashsocket'],
@@ -24,7 +23,7 @@ const ChatRoom = () => {
       {/* if showchat is false, show the starter page*/}
       {!showChat ? (
         <div className='chat-room'>
-          <h1>CHAT WITH YOUR MATES</h1>
+          <h1>Chat with your mates</h1>
           <input
             type='text'
             placeholder='Name...'
