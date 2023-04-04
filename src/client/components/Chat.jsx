@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/ChatRoom.module.css';
+import ScrollToBottom from 'react-scroll-to-bottom';
 
 const Chat = ({ socket, username, room }) => {
   const [currMessage, setCurrMessage] = useState('');
@@ -19,6 +20,7 @@ const Chat = ({ socket, username, room }) => {
       await socket.emit('sendMessage', messageData);
       // add new message to end of list of messages
       setMessageList((list) => [...list, messageData]);
+      setCurrMessage('');
     }
   };
   useEffect(() => {
@@ -33,27 +35,30 @@ const Chat = ({ socket, username, room }) => {
         <h2>Live Chat</h2>
       </div>
       <div className='chat-body'>
-        {messageList.map((messageContent) => {
-          return (
-            <div
-              className='message'
-              id={username === messageContent.username ? 'you' : 'other'}
-            >
-              <div className='message-content'>
-                <p>{messageContent.message}</p>
+        {/* add scroll functionality to scroll to latest message */}
+        <ScrollToBottom className='message-container'>
+          {messageList.map((messageContent) => {
+            return (
+              <div
+                className='message'
+                id={username === messageContent.username ? 'you' : 'other'}
+              >
+                <div className='message-content'>
+                  <p>{messageContent.message}</p>
+                </div>
+                <div className='message-info'>
+                  <p id='time'>{messageContent.time}</p>
+                  <p id='username'>{messageContent.username}</p>
+                </div>
               </div>
-              <div className='message-info'>
-                <p id='time'>{messageContent.time}</p>
-                <p id='username'>{messageContent.username}</p>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </ScrollToBottom>
       </div>
       <div className='chat-footer'>
         <input
           type='text'
-          placeholder='Hey...'
+          value={currMessage}
           onChange={(event) => {
             setCurrMessage(event.target.value);
           }}
