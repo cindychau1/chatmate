@@ -6,11 +6,13 @@ import './styles/App.css';
 
 const App = () => {
   return (
-    <>
+    <div>
       <Navbar />
-      <JoinRoom />
+      <div className='app'>
+        <JoinRoom />
+      </div>
       <Footer />
-    </>
+    </div>
   );
 };
 export default App;

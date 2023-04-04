@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { io } from 'socket.io-client';
 import Chat from './Chat';
-import '../styles/index.css';
+import '../styles/JoinRoom.module.css';
 
 const socket = io.connect('http://localhost:3000', {
   transports: ['websocket', 'polling', 'flashsocket'],
@@ -10,6 +10,7 @@ const socket = io.connect('http://localhost:3000', {
 const JoinRoom = () => {
   const [username, setUsername] = useState('');
   const [room, setRoom] = useState('');
+  const [showChat, setShowChat] = useState(false);
 
   const joinRoom = () => {
     if (username !== '' && room !== '') {
@@ -18,7 +19,7 @@ const JoinRoom = () => {
   };
 
   return (
-    <div className='chat-container'>
+    <div className='join-room'>
       <h1>CHAT WITH YOUR MATES</h1>
       <input
         type='text'

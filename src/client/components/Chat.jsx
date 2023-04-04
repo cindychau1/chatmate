@@ -23,7 +23,7 @@ const Chat = ({ socket, username, room }) => {
     });
   }, [socket]);
   return (
-    <div>
+    <div className='chat-window'>
       <div className='chat-header'>
         <h2>Live Chat</h2>
       </div>

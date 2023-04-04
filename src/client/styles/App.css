@@ -9,6 +9,12 @@ body {
   background-color: #1a1a1a;
   color: white
 }
+
+.app {
+  text-align: center;
+  min-height: 100vh;
+}
+
 /* navbar styling */
 .navbar {
   padding: 1rem 2rem;
