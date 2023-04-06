@@ -98,12 +98,11 @@ body {
 
 .chat-window .chat-header {
   height: 40px;
-  border-radius: 5px;
-  background: #263238;
+  border-radius: 5px 5px 0 0;
+  background-color: #263238;
   position: relative;
 }
 
-/* need to alter styling below */
 .chat-window .chat-header p {
   padding: 0 1rem;
   color: #fff;
@@ -115,7 +114,6 @@ body {
   height: 400px;
   border: 1px solid #263238;
   background: #fff;
-
   position: relative;
 }
 .chat-window .chat-body .message-container {
@@ -125,6 +123,7 @@ body {
   overflow-x: hidden;
 }
 
+/* need to alter styling below */
 .chat-window .chat-body .message-container::-webkit-scrollbar {
   display: none;
 }
@@ -138,22 +137,20 @@ body {
   width: auto;
   height: auto;
   min-height: 40px;
-  max-width: 120px;
-  background-color: #43a047;
+  max-width: 140px;
+  background-color: #2078b4;
   border-radius: 5px;
   color: white;
   display: flex;
   align-items: center;
-  margin-right: 5px;
-  margin-left: 5px;
-  padding-right: 5px;
-  padding-left: 5px;
+  margin: 0 5px;
+  padding: 5px;
   overflow-wrap: break-word;
   word-break: break-word;
 }
 
 #you {
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 #you .message-content {
