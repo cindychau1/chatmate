@@ -31,7 +31,7 @@ const Chat = ({ socket, username, room }) => {
   return (
     <div className='chat-window'>
       <div className='chat-header'>
-        <p>Live Chat</p>
+        <p>Live Chat </p>
       </div>
       <div className='chat-body'>
         {/* add scroll functionality to scroll to latest message */}
@@ -42,12 +42,12 @@ const Chat = ({ socket, username, room }) => {
                 className='message'
                 id={username === messageContent.username ? 'you' : 'other'}
               >
+                <div className='message-info'>
+                  <p id='username'>{messageContent.username}</p>
+                  <p id='time'>{messageContent.time}</p>
+                </div>
                 <div className='message-content'>
                   <p>{messageContent.message}</p>
-                </div>
-                <div className='message-info'>
-                  <p id='time'>{messageContent.time}</p>
-                  <p id='username'>{messageContent.username}</p>
                 </div>
               </div>
             );
