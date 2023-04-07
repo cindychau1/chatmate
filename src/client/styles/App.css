@@ -120,6 +120,10 @@ body {
   overflow-x: hidden;
 }
 
+.chat-window .typing-indicator {
+  color: black;
+}
+
 /* styling for messages in chat window */ 
 .chat-window .chat-body .message {
   height: auto;

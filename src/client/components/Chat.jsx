@@ -62,6 +62,9 @@ const Chat = ({ socket, username, room }) => {
               </div>
             );
           })}
+          <div className='typing-indicator'>
+            {isTyping && <p className='isTyping'>{username} is typing...</p>}
+          </div>
         </ScrollToBottom>
       </div>
       <div className='chat-footer'>
@@ -78,7 +81,7 @@ const Chat = ({ socket, username, room }) => {
             event.key === 'Enter' && sendMessage();
           }}
           // update state when user stops typing
-          onKeyUp={(event) => setIsTyping(false)}
+          onBlur={() => setIsTyping(false)}
         />
         <button onClick={sendMessage}>&#9658;</button>
       </div>
