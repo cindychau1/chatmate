@@ -7,14 +7,21 @@ const Chat = ({ socket, username, room }) => {
 
   const sendMessage = async () => {
     if (currMessage !== '') {
+      // get time data, added conversion from military time
+      const date = new Date();
+      const hour = date.getHours();
+      const minute = date.getMinutes();
+      let period = 'AM';
+      let hour12 = hour;
+      if (hour > 12) {
+        hour12 = hour - 12;
+        period = 'PM';
+      }
       const messageData = {
         room: room,
         username: username,
         message: currMessage,
-        time:
-          new Date(Date.now()).getHours() +
-          ':' +
-          new Date(Date.now()).getMinutes(),
+        time: `${hour12}:${minute < 10 ? '0' + minute : minute} ${period}`,
       };
       await socket.emit('sendMessage', messageData);
       // add new message to end of list of messages
@@ -42,10 +49,12 @@ const Chat = ({ socket, username, room }) => {
                 className='message'
                 id={username === messageContent.username ? 'you' : 'other'}
               >
+                {/* display message info (username and time) */}
                 <div className='message-info'>
                   <p id='username'>{messageContent.username}</p>
                   <p id='time'>{messageContent.time}</p>
                 </div>
+                {/* display messages */}
                 <div className='message-content'>
                   <p>{messageContent.message}</p>
                 </div>
