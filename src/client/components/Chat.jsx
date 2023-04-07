@@ -38,6 +38,7 @@ const Chat = ({ socket, username, room }) => {
   }, [socket]);
   return (
     <div className='chat-window'>
+      <p className='room-emoji'>Room: {room}</p>
       <div className='chat-header'>
         <p>Live Chat </p>
       </div>
@@ -76,14 +77,14 @@ const Chat = ({ socket, username, room }) => {
           onChange={(event) => {
             setCurrMessage(event.target.value);
             // update state when user starts typing
-            setIsTyping(true);
+            setIsTyping({ status: true, user: username });
           }}
           // add enter functionality to send message in addition to button click
           onKeyDown={(event) => {
             event.key === 'Enter' && sendMessage();
           }}
           // update state when user stops typing
-          onBlur={() => setIsTyping(false)}
+          onBlur={() => setIsTyping({ status: false, user: '' })}
         />
         <button onClick={sendMessage}>&#9658;</button>
       </div>

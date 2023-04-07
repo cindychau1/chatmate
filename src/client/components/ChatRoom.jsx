@@ -9,8 +9,8 @@ const socket = io.connect('http://localhost:3000', {
 
 const ChatRoom = () => {
   const [username, setUsername] = useState('');
-  const [room, setRoom] = useState('');
   const [showChat, setShowChat] = useState(false);
+  const [room, setRoom] = useState('');
 
   const joinRoom = () => {
     if (username !== '' && room !== '') {
@@ -25,7 +25,7 @@ const ChatRoom = () => {
       {/* if showchat is false, show the starter page*/}
       {!showChat ? (
         <div className='chat-room'>
-          <h1>Chat with your mates</h1>
+          <h1>Stay connected with Chatmate!</h1>
           <input
             type='text'
             placeholder='Name...'
@@ -33,13 +33,30 @@ const ChatRoom = () => {
               setUsername(event.target.value);
             }}
           />
-          <input
+          {/* <input
             type='text'
             placeholder='Room ID...'
             onChange={(event) => {
               setRoom(event.target.value);
             }}
-          />
+          /> */}
+          <div className='chat-room-selection'>
+            <button onClick={() => setRoom('🐷')}>
+              <p>🐷</p>
+            </button>
+            <button onClick={() => setRoom('🦊')}>
+              <p>🦊</p>
+            </button>
+            <button onClick={() => setRoom('🐳')}>
+              <p>🐳</p>
+            </button>
+            <button onClick={() => setRoom('🙊')}>
+              <p>🙊</p>
+            </button>
+            <button onClick={() => setRoom('🐸')}>
+              <p>🐸</p>
+            </button>
+          </div>
           <button onClick={joinRoom}>Join A Room</button>
         </div>
       ) : (
