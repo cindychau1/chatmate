@@ -4,7 +4,7 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 const Chat = ({ socket, username, room }) => {
   const [currMessage, setCurrMessage] = useState('');
   const [messageList, setMessageList] = useState([]);
-  const [isTyping, setIsTyping] = useState(false);
+  const [isTyping, setIsTyping] = useState({ status: false, user: '' });
 
   const sendMessage = async () => {
     if (currMessage !== '') {
@@ -63,7 +63,9 @@ const Chat = ({ socket, username, room }) => {
             );
           })}
           <div className='typing-indicator'>
-            {isTyping && <p className='isTyping'>{username} is typing...</p>}
+            {isTyping.status && (
+              <p className='isTyping'>{isTyping.user} is typing...</p>
+            )}
           </div>
         </ScrollToBottom>
       </div>
