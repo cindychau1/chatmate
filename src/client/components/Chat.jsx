@@ -4,6 +4,7 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 const Chat = ({ socket, username, room }) => {
   const [currMessage, setCurrMessage] = useState('');
   const [messageList, setMessageList] = useState([]);
+  const [isTyping, setIsTyping] = useState(false);
 
   const sendMessage = async () => {
     if (currMessage !== '') {
@@ -69,11 +70,15 @@ const Chat = ({ socket, username, room }) => {
           value={currMessage}
           onChange={(event) => {
             setCurrMessage(event.target.value);
+            // update state when user starts typing
+            setIsTyping(true);
           }}
           // add enter functionality to send message in addition to button click
           onKeyDown={(event) => {
             event.key === 'Enter' && sendMessage();
           }}
+          // update state when user stops typing
+          onKeyUp={(event) => setIsTyping(false)}
         />
         <button onClick={sendMessage}>&#9658;</button>
       </div>
