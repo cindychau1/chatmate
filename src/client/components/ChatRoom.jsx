@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { io } from 'socket.io-client';
 import Chat from './Chat';
+import Navbar from './Navbar';
 
 const socket = io.connect('http://localhost:3000', {
   transports: ['websocket', 'polling', 'flashsocket'],
@@ -20,6 +21,7 @@ const ChatRoom = () => {
 
   return (
     <div className='app'>
+      <Navbar username={username} />
       {/* if showchat is false, show the starter page*/}
       {!showChat ? (
         <div className='chat-room'>
