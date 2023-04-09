@@ -113,7 +113,6 @@ body {
   margin: 0;
 }
 
-
 .chat-window .chat-header {
   height: 40px;
   background-color: #2e2d2d;
@@ -132,7 +131,20 @@ body {
 
 .chat-window .room-emoji {
   font-size: 24px;
-  padding: 5px;
+  padding: 2px;
+}
+
+.chat-window .exit-btn {
+  background-color: inherit;
+  border: none;
+  padding: 0 10px;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+}
+
+.chat-window .exit-btn:hover {
+  color: #dd372e
 }
 
 .chat-window .chat-body {
@@ -237,5 +249,5 @@ body {
 }
 
 .chat-window .chat-footer button:hover {
-  color: #2078b4;
+  color: #3CB043
 }
