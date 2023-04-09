@@ -6,7 +6,6 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 const Chat = ({ socket, username, room }) => {
   const [currMessage, setCurrMessage] = useState('');
   const [messageList, setMessageList] = useState([]);
-  const [isTyping, setIsTyping] = useState({ status: false, user: '' });
 
   const handleLeaveChat = () => {
     // redirect the user to the main page
@@ -39,7 +38,6 @@ const Chat = ({ socket, username, room }) => {
     }
   };
   useEffect(() => {
-    // "socket" obj listens for the "receiveMessage" event from the server
     socket.on('receiveMessage', (data) => {
       // add new message to end of list of messages
       setMessageList((list) => [...list, data]);
@@ -76,11 +74,6 @@ const Chat = ({ socket, username, room }) => {
               </div>
             );
           })}
-          <div className='typing-indicator'>
-            {isTyping.status && (
-              <p className='isTyping'>{isTyping.user} is typing...</p>
-            )}
-          </div>
         </ScrollToBottom>
       </div>
       <div className='chat-footer'>
@@ -89,15 +82,11 @@ const Chat = ({ socket, username, room }) => {
           value={currMessage}
           onChange={(event) => {
             setCurrMessage(event.target.value);
-            // update state when user starts typing
-            setIsTyping({ status: true, user: username });
           }}
           // add enter functionality to send message in addition to button click
           onKeyDown={(event) => {
             event.key === 'Enter' && sendMessage();
           }}
-          // update state when user stops typing
-          onBlur={() => setIsTyping({ status: false, user: '' })}
         />
         <button onClick={sendMessage}>
           <SendIcon />

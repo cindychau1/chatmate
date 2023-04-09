@@ -160,10 +160,6 @@ body {
   overflow-x: hidden;
 }
 
-.chat-window .typing-indicator {
-  color: black;
-}
-
 /* styling for messages in chat window */ 
 .chat-window .chat-body .message {
   height: auto;
@@ -243,7 +239,7 @@ body {
   cursor: pointer;
   flex: 10%;
   height: 100%;
-  background: transparent;
+  background: #2e2d2d;
   font-size: 20px;
   color: lightgray;
 }
