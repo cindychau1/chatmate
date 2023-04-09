@@ -15,13 +15,17 @@ const io = new Server(server, {
   },
 });
 
-// listen for a "connection" event
+// listen for a "connection" event that is emitted when a new client connects to the server
+// a new socket object is created for that client
 io.on('connection', (socket) => {
+  // joinRoom event listner
+  // when a client emits a "joinRoom" event, server uses 'socket.join()' method to add the client to the specified room
   socket.on('joinRoom', (data) => {
     socket.join(data);
     console.log(`User with ID: ${socket.id} joined room: ${data}`);
   });
-
+  // sendMessage event listner
+  // when a client emits a "sendMessage" event, server uses "socket.to()" method to broadcase message to all clients in the specified room except sender
   socket.on('sendMessage', (data) => {
     socket.to(data.room).emit('receiveMessage', data);
   });

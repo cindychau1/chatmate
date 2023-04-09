@@ -24,6 +24,7 @@ const Chat = ({ socket, username, room }) => {
         message: currMessage,
         time: `${hour12}:${minute < 10 ? '0' + minute : minute} ${period}`,
       };
+      // "socket" obj emits a "sendMessage" event to server, passing the "messageData" obj as an arg
       await socket.emit('sendMessage', messageData);
       // add new message to end of list of messages
       setMessageList((list) => [...list, messageData]);
@@ -31,6 +32,7 @@ const Chat = ({ socket, username, room }) => {
     }
   };
   useEffect(() => {
+    // "socket" obj listens for the "receiveMessage" event from the server
     socket.on('receiveMessage', (data) => {
       // add new message to end of list of messages
       setMessageList((list) => [...list, data]);
