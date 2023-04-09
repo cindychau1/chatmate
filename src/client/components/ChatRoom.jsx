@@ -14,7 +14,7 @@ const ChatRoom = () => {
 
   const joinRoom = () => {
     if (username !== '' && room !== '') {
-      // "socket" obj emits a "joinRoom" event to the server, passing the "room" variable as an arg 
+      // "socket" obj emits a "joinRoom" event to the server, passing the "room" variable as an arg
       socket.emit('joinRoom', room);
       setShowChat(true);
     }
@@ -43,6 +43,9 @@ const ChatRoom = () => {
             </button>
             <button onClick={() => setRoom('🐥')}>
               <p>🐥</p>
+            </button>
+            <button onClick={() => setRoom('🐸')}>
+              <p>🐸</p>
             </button>
             <button onClick={() => setRoom('🐳')}>
               <p>🐳</p>

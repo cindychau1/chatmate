@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import ScrollToBottom from 'react-scroll-to-bottom';
 
 const Chat = ({ socket, username, room }) => {
   const [currMessage, setCurrMessage] = useState('');
   const [messageList, setMessageList] = useState([]);
   const [isTyping, setIsTyping] = useState({ status: false, user: '' });
+
+  // get history obj from React Router
+  const history = useHistory();
+
+  const handleLeaveChat = () => {
+    // redirect the user to the main page
+    history.push('/');
+  };
 
   const sendMessage = async () => {
     if (currMessage !== '') {
@@ -44,6 +53,7 @@ const Chat = ({ socket, username, room }) => {
         <p>
           Live Chat <span className='room-emoji'>{room}</span>{' '}
         </p>
+        <button onClick={handleLeaveChat}>Leave Chat</button>
       </div>
       <div className='chat-body'>
         {/* add scroll functionality to scroll to latest message */}
