@@ -33,28 +33,18 @@ const ChatRoom = () => {
               setUsername(event.target.value);
             }}
           />
-          {/* <input
-            type='text'
-            placeholder='Room ID...'
-            onChange={(event) => {
-              setRoom(event.target.value);
-            }}
-          /> */}
           <div className='chat-room-selection'>
-            <button onClick={() => setRoom('🐷')}>
-              <p>🐷</p>
-            </button>
             <button onClick={() => setRoom('🦊')}>
               <p>🦊</p>
             </button>
+            <button onClick={() => setRoom('🐷')}>
+              <p>🐷</p>
+            </button>
+            <button onClick={() => setRoom('🐥')}>
+              <p>🐥</p>
+            </button>
             <button onClick={() => setRoom('🐳')}>
               <p>🐳</p>
-            </button>
-            <button onClick={() => setRoom('🙊')}>
-              <p>🙊</p>
-            </button>
-            <button onClick={() => setRoom('🐸')}>
-              <p>🐸</p>
             </button>
           </div>
           <button onClick={joinRoom}>Join A Room</button>
