@@ -113,16 +113,13 @@ body {
   margin: 0;
 }
 
-.chat-window .room-emoji {
-  font-size: 24px;
-  text-align: center;
-  padding: 1rem 0;
-}
 
 .chat-window .chat-header {
   height: 40px;
   background-color: #2e2d2d;
   position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 
 .chat-window .chat-header p {
@@ -130,6 +127,12 @@ body {
   color: #fff;
   font-weight: bold;
   line-height: 40px;
+  font-size: 18px;
+}
+
+.chat-window .room-emoji {
+  font-size: 24px;
+  padding: 5px;
 }
 
 .chat-window .chat-body {
