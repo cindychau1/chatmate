@@ -1,17 +1,18 @@
 import express from 'express';
 import http from 'http';
 import cors from 'cors';
-import { Server } from 'socket.io';
 const app = express();
 const PORT = 3000;
-
 app.use(cors());
+
+import { Server } from 'socket.io';
 const server = http.createServer(app);
 
+// initializes a socket.io server instance on top of
+// "http" server instance with CORS configured
 const io = new Server(server, {
   cors: {
     origin: 'http://localhost:3000',
-    methods: ['GET', 'POST'],
   },
 });
 
