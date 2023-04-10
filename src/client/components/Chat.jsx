@@ -18,11 +18,11 @@ const Chat = ({ socket, username, room }) => {
       const date = new Date();
       const hour = date.getHours();
       const minute = date.getMinutes();
-      let period = 'PM';
+      let period = 'AM';
       let hour12 = hour;
       if (hour > 12) {
         hour12 = hour - 12;
-        period = 'AM';
+        period = 'PM';
       }
       const messageData = {
         room: room,
