@@ -26,7 +26,7 @@ const ChatRoom = () => {
       {/* if showchat is false, show the starter page*/}
       {!showChat ? (
         <div className='chat-room'>
-          <h1>Stay connected with Chatmate!</h1>
+          <h1>Let's chat!</h1>
           <input
             type='text'
             placeholder='Name...'
@@ -40,12 +40,6 @@ const ChatRoom = () => {
             </button>
             <button onClick={() => setRoom('🐷')}>
               <p>🐷</p>
-            </button>
-            <button onClick={() => setRoom('🐥')}>
-              <p>🐥</p>
-            </button>
-            <button onClick={() => setRoom('🐸')}>
-              <p>🐸</p>
             </button>
             <button onClick={() => setRoom('🐳')}>
               <p>🐳</p>

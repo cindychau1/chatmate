@@ -27,12 +27,12 @@ body {
   align-items: center;
   border: 1px solid white;
   border-radius: .5rem;
-  padding: 1rem;
+  padding: .5rem;
 }
 
 .chat-room h1 {
   color: #2078b4;
-  font-size: 30px;
+  font-size: 26px;
   padding: 1.5rem;
 }
 
